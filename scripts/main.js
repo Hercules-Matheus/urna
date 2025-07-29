@@ -71,20 +71,9 @@ function carregaDados() {
     var voteSumTotal = 0;
     if (chapa.numero === "nulo" || chapa.numero === "BR") {
       votosTotais = 0;
-    } else if (totalVotosPais + totalVotosAlunos === 0) {
-      votosTotais =
-        ((votosProfessores + votosFuncionarios) * 100) /
-        (totalVotosProfessores + totalVotosFuncionarios);
-    } else if (totalVotosProfessores + totalVotosFuncionarios === 0) {
-      votosTotais =
-        ((votosPais + votosAlunos) * 100) / (totalVotosPais + totalVotosAlunos);
     } else {
-      var parte1 =
-        ((votosPais + votosAlunos) * 50) / (totalVotosPais + totalVotosAlunos);
-      var parte2 =
-        ((votosProfessores + votosFuncionarios) * 50) /
-        (totalVotosProfessores + totalVotosFuncionarios);
-      votosTotais = parte1 + parte2;
+      votosTotais =
+        votosPais + votosAlunos + votosProfessores + votosFuncionarios;
     }
 
     if (!votosTotais) {
@@ -372,7 +361,7 @@ function convertePDF(x) {
     pdf.text(50, 110, "COORDENADORIA DE DESENVOLVIMENTO DA GESTÃO ESCOLAR");
     pdf.text(135, 130, "SETOR DE TECNOLOGIA EDUCACIONAL/GTI");
     pdf.text(150, 220, "Resultado da Eleição: Gestores Escolares");
-    pdf.text(230, 240, "(triênio 2025-2027).");
+    pdf.text(165, 240, "(Complementação - Triênio 2025-2027)");
     pdf.text(
       200,
       460,
@@ -390,7 +379,7 @@ function convertePDF(x) {
     pdf.text(50, 110, "COORDENADORIA DE DESENVOLVIMENTO DA GESTÃO ESCOLAR");
     pdf.text(135, 130, "SETOR DE TECNOLOGIA EDUCACIONAL/GTI");
     pdf.text(150, 220, "Resultado da Eleição: Gestores Escolares");
-    pdf.text(230, 240, "(triênio 2025-2027).");
+    pdf.text(165, 240, "(Complementação - Triênio 2025-2027)");
     pdf.text(
       200,
       460,
